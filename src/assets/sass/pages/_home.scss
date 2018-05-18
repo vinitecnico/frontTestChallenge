@@ -5,9 +5,9 @@ body {
 .footer-body {
     color: $color-gray;
     background-color: $color-white;
-    position: absolute;
     bottom: 0;
     width: 100%;
+    padding: 15px;
 }
 
 .header-main {
@@ -17,4 +17,8 @@ body {
         font-size: 1.25rem;
         color: #212529;
     }
+}
+
+.img-home {
+    max-height: 280px;
 }

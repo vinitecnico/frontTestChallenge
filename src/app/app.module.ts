@@ -12,11 +12,26 @@ import { AppRoutingModule } from './app-routing.module';
 // Components
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
+import { BrewdogBeersComponent } from './components/brewdog-beers/brewdog-beers.component';
+import { InputSearchComponent } from './components/input-search/input-search.component';
+import { ListItemsComponent } from './components/list-items/list-items.component';
+import { StarWarsComponent } from './components/star-wars/star-wars.component';
+import { RecommendedComponent } from './components/recommended/recommended.component';
+
+// Services
+import { ApiService } from './services/api.service';
+import { CommonService } from './services/common.service';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    BrewdogBeersComponent,
+    InputSearchComponent,
+    ListItemsComponent,
+    StarWarsComponent,
+    RecommendedComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +42,11 @@ import { HomeComponent } from './components/home/home.component';
     AppRoutingModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    ApiService,
+    CommonService
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

@@ -1,36 +1,33 @@
-<main class="text-center pb-5 pt-5">
-        <article class="pt-4">
-          <section class="pb-4 container">
-            <h1>
-              Bem vindo!
-            </h1>
-      
-            <h4>Escolha um dos temas a seguir:</h4>
-          </section>
-      
-          <div class="container">
-            <div class="row">
-      
-              <section class="col-12 col-md-6 mb-3" [routerLink]="['/marvel']">
-                <div class="card">
-                  <img class="card-img-top" src="../../../assets/images/marvel.png" alt="Marvel">
-                  <div class="overlay">
-                    <span class="text">Marvel</span>
-                  </div>
-                </div>
-              </section>
-      
-              <section class="col-12 col-md-6 mb-3" [routerLink]="['/starwars']">
-                <div class="card">
-                  <img class="card-img-top" src="../../../assets/images/starwars.png" alt="Star Wars">
-                  <div class="overlay">
-                    <span class="text">Star Wars</span>
-                  </div>
-                </div>
-              </section>
-      
-            </div>
+<main>
+  <article>
+    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+      <h1 class="display-4">Frontend Challenge#</h1>
+      <p class="lead">O que gosta mais? Queremos saber a sua opinião!</p>
+    </div>
+    
+    <div class="container mb-5">
+      <div class="card-deck mb-3 text-center">
+        <div class="card mb-6 box-shadow">
+          <div class="card-header">
+            <h4 class="my-0 font-weight-normal"><i class="fa fa-beer"></i> Brewdog Beers</h4>
           </div>
-      
-        </article>
-      </main>
+          <div class="card-body">
+              <img class="card-img-top mb-3 rounded img-home" src="../../../assets/img/brewdog-beer.jpg" alt="Star Wars">
+            <button type="button" class="btn btn-lg btn-block btn-outline-primary" [routerLink]="['/brewdog-beers']"><i class="fa fa-plus"></i> Saiba Mais</button>
+          </div>
+        </div>
+        <div class="card mb-6 box-shadow">
+          <div class="card-header">
+            <h4 class="my-0 font-weight-normal"><i class="fa fa-space-shuttle"></i> Star Wars</h4>
+          </div>
+          <div class="card-body">
+            <img class="card-img-top mb-3 rounded img-home" src="../../../assets/img/starWars.png" alt="Star Wars">
+            <button type="button" class="btn btn-lg btn-block btn-outline-primary" [routerLink]="['/star-wars']"><i class="fa fa-plus"></i> Saiba Mais</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </article>
+</main>
