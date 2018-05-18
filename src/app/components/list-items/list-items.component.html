@@ -1,37 +1,40 @@
-<div>
-    <article class="card mb-3 col-md-12" *ngFor="let item of items" [hidden]="!items.length === 0">
-        <section class="row">
-
-            <div class="col-md-2" *ngIf="item.image_url">
-                <img [src]="item.image_url" alt="item.name" class="mx-auto d-block img-item mb-2 mt-2">
-            </div>
-
-            <div class="col-md-10 px-3">
-                <div class="card-block px-3">
-
-                    <h4 class="card-title mt-3">
-                        <a target="_blank">{{item.name}}</a>
-                    </h4>
-
-                    <p class="card-text text-justify mb-2">
-                        {{limitText(item.description)}}
-                    </p>
-
-                    <button type="button" class="btn btn-outline-primary btn-sm mb-3" *ngIf="!isPageRecommended" [hidden]="item.selected" (click)="setItemSelectes(item)">
-                        <i class="fa fa-thumbs-up"></i> Recomendar
-                    </button>
-                    <button type="button" class="btn btn-primary btn-sm mb-3" *ngIf="!isPageRecommended" [hidden]="!item.selected" (click)="setItemSelectes(item)">
-                        <i class="fa fa-check"></i> Recomendado
-                    </button>
-
+<div class="container-fluid">
+    <div class="row" [hidden]="!items.length === 0">
+        <div class="card mb-3 col-12 col-md-12" *ngFor="let item of items">
+            <section class="row">
+                <div class="col-md-2" *ngIf="item.image_url">
+                    <img [src]="item.image_url" alt="item.name" class="mx-auto d-block img-item mb-2 mt-2">
                 </div>
-            </div>
 
-        </section>
-    </article>
-    <article class="mb-3 col-12 col-md-12" [hidden]="!endSearch || items.length > 0">
-        <div class="alert alert-info" role="alert">
-            <strong>Resultado não encontrado para sua pesquisa!</strong>.
+                <div class="col-md-10 px-3">
+                    <div class="card-block px-3">
+
+                        <h4 class="card-title mt-3">
+                            <a target="_blank">{{item.name}}</a>
+                        </h4>
+
+                        <p class="card-text text-justify mb-2">
+                            {{limitText(item.description)}}
+                        </p>
+
+                        <button type="button" class="btn btn-outline-primary btn-sm mb-3" *ngIf="!isPageRecommended" [hidden]="item.selected" (click)="setItemSelectes(item)">
+                            <i class="fa fa-thumbs-up"></i> Recomendar
+                        </button>
+                        <button type="button" class="btn btn-primary btn-sm mb-3" *ngIf="!isPageRecommended" [hidden]="!item.selected" (click)="setItemSelectes(item)">
+                            <i class="fa fa-check"></i> Recomendado
+                        </button>
+
+                    </div>
+                </div>
+
+            </section>
         </div>
-    </article>
+    </div>
+    <div class="row">
+        <div class="mb-3 col-12 col-md-12" *ngIf="endSearch && items.length == 0">
+            <div class="alert alert-info" role="alert">
+                <strong>Resultado não encontrado para sua pesquisa!</strong>.
+            </div>
+        </div>
+    </div>
 </div>

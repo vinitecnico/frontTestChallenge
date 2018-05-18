@@ -1,5 +1,5 @@
 body {
-    background-color: $background-color;
+    background-color: $background-color!important;
 }
 
 .nav-background-color{
@@ -19,7 +19,7 @@ body {
     a {
         font-weight: 400!important;
         font-size: 1.25rem;
-        color: #212529;
+        color: $color-link;
     }
 }
 
@@ -32,10 +32,53 @@ body {
 }
 
 .page-min-height {
-    min-height: 576px!important;
+    min-height: 490px!important;
 }
 
 abe-input-search {
     width: 100%;
     float: right;
+}
+
+.middle {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.card-body.image {
+  opacity: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: .5s ease;
+  backface-visibility: hidden;
+  cursor: pointer;
+}
+
+.card-body:hover .image {
+    opacity: 0.3;
+}
+
+.card-body:hover .middle {
+    opacity: 1;
+  }
+
+.text {
+  background-color: $color-gray;
+  color: $color-white;
+  font-size: 16px;
+  padding: 16px 32px;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: $mobile-max-size) {
+    .btn {
+        width: 100%!important;
+    }
 }

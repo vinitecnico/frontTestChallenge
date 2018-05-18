@@ -1,4 +1,4 @@
-<main class="page-min-height pull-right">
+<main class="page-min-height">
     <article class="row">
         <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
             <h1 class="display-4">
@@ -7,6 +7,6 @@
                 <i class="fa fa-thumbs-up"></i>!</p>
         </div>
         <abe-input-search [searchItems]="getBrewdogbeers" [hidden]="!endSearch"></abe-input-search>
-        <abe-list-items [items]="items" [endSearch]="endSearch"></abe-list-items>
+        <abe-list-items class="container-fluid" [items]="items" [endSearch]="endSearch"></abe-list-items>
     </article>
 </main>

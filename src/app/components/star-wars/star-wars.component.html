@@ -1,4 +1,4 @@
-<main class="container page-min-height">
+<main class="page-min-height">
     <article class="row">
         <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
             <h1 class="display-4">
@@ -10,6 +10,6 @@
         </div>
 
         <abe-input-search [searchItems]="getStarWars" [hidden]="!endSearch"></abe-input-search>
-        <abe-list-items [items]="items" [endSearch]="endSearch"></abe-list-items>
+        <abe-list-items [items]="items" [endSearch]="endSearch" class="container-fluid"></abe-list-items>
     </article>
 </main>

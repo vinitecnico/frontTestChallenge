@@ -6,6 +6,7 @@ import { BlockUIModule } from 'ng-block-ui';
 import { BlockUIHttpModule } from 'ng-block-ui/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgbModule, NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
+import { CollapseModule, BsDropdownModule } from 'ngx-bootstrap';
 
 // Router
 import { AppRoutingModule } from './app-routing.module';
@@ -43,7 +44,9 @@ import { CommonService } from './services/common.service';
     AppRoutingModule,
     ReactiveFormsModule,
     NgbModule.forRoot(),
-    NgbCollapseModule
+    NgbCollapseModule,
+    CollapseModule.forRoot(),
+    BsDropdownModule.forRoot()
   ],
   providers: [
     ApiService,
