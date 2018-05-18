@@ -2,6 +2,10 @@ body {
     background-color: $background-color;
 }
 
+.nav-background-color{
+    background-color: $color-white!important;
+}
+
 .footer-body {
     color: $color-gray;
     background-color: $color-white;
@@ -28,5 +32,10 @@ body {
 }
 
 .page-min-height {
-    min-height: 576px;
+    min-height: 576px!important;
+}
+
+abe-input-search {
+    width: 100%;
+    float: right;
 }

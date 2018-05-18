@@ -7,7 +7,6 @@ import { CommonService } from '../../services/common.service';
     templateUrl: './star-wars.component.html'
 })
 export class StarWarsComponent implements OnInit {
-    name: string;
     items: any[];
     endSearch: boolean;
     constructor(private commonService: CommonService) { }
@@ -16,7 +15,7 @@ export class StarWarsComponent implements OnInit {
         this.getStarWars();
     }
 
-    getStarWars() {
+    getStarWars = (name?) => {
         this.endSearch = false;
         this.commonService.getStarwars(name)
             .subscribe((response: any) => {

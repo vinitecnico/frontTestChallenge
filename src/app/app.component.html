@@ -1,20 +1,26 @@
 <block-ui>
-  <header>
-    <div class="header-main d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
-      <a [routerLink]="['/home']" class="my-0 mr-md-auto font-weight-normal">Frontend Challenge #</a>
-      <nav class="my-2 my-md-0 mr-md-3">        
-        <a class="p-2 text-dark" [routerLink]="['/brewdog-beers']">
-            <i class="fa fa-beer"></i> Brewdog Beers
-        </a>
-        <a class="p-2 text-dark" [routerLink]="['/star-wars']">
-            <i class="fa fa-space-shuttle"></i> Star Wars
-        </a>
-        <a class="p-2 text-dark" [routerLink]="['/recommended']">
-          <i class="fa fa-thumbs-up"></i> Recomendados
-        </a>
-      </nav>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom shadow-sm nav-background-color">
+    <a class="navbar-brand" [routerLink]="['/home']">Frontend Challenge #</a>
+    <button class="navbar-toggler d-lg-none" type="button" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed" aria-controls="navbarsExampleDefault" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault" [ngbCollapse]="isCollapsed">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" [routerLink]="['/brewdog-beers']">
+            <i class="fa fa-beer"></i> Brewdog Beers</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" [routerLink]="['/star-wars']">
+            <i class="fa fa-space-shuttle"></i> Star Wars</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link disabled" [routerLink]="['/recommended']">
+            <i class="fa fa-thumbs-up"></i> Recomendados</a>
+        </li>
+      </ul>
     </div>
-  </header>
+  </nav>
 
   <div class="container">
     <router-outlet></router-outlet>
@@ -24,9 +30,9 @@
   <footer class="footer-body border-top">
     <div class="container">
       <p class="float-right">
-        <a href="#">Back to top</a>
+        <a>Frontend Challenge#!</a>
       </p>
-      <p>vrds © Frontend Challenge#!</p>
+      <p>vrds©2018</p>
       <p>saiba mais
         <a href="https://github.com/vinitecnico/frontTestChallenge.git">github</a> ou
         <a href="https://www.linkedin.com/in/vrodriguessantos/">linkdin</a>.</p>

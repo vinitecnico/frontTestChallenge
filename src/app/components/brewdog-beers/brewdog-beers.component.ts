@@ -9,7 +9,6 @@ import { CommonService } from '../../services/common.service';
     templateUrl: './brewdog-beers.component.html'
 })
 export class BrewdogBeersComponent implements OnInit {
-    name: string;
     items: any[];
     endSearch: boolean;
     constructor(private commonService: CommonService) { }
@@ -18,7 +17,7 @@ export class BrewdogBeersComponent implements OnInit {
         this.getBrewdogbeers();
     }
 
-    getBrewdogbeers() {
+    getBrewdogbeers = (name?) => {
         this.endSearch = false;
         this.commonService.getBrewdogbeers(name)
             .subscribe((response: any) => {

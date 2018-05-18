@@ -14,8 +14,7 @@
                     </h4>
 
                     <p class="card-text text-justify mb-2">
-                        {{item.description | slice: 0:400 }}
-                        <span *ngIf="item.description && item.description.length > 350">...</span>
+                        {{limitText(item.description)}}
                     </p>
 
                     <button type="button" class="btn btn-outline-primary btn-sm mb-3" *ngIf="!isPageRecommended" [hidden]="item.selected" (click)="setItemSelectes(item)">
@@ -30,7 +29,7 @@
 
         </section>
     </article>
-    <article class="card mb-3 col-md-12" [hidden]="!endSearch || items.length > 0">
+    <article class="mb-3 col-12 col-md-12" [hidden]="!endSearch || items.length > 0">
         <div class="alert alert-info" role="alert">
             <strong>Resultado não encontrado para sua pesquisa!</strong>.
         </div>
