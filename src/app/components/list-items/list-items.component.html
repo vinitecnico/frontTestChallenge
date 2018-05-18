@@ -1,5 +1,5 @@
 <div class="container-fluid">
-    <div class="row" [hidden]="!items.length === 0">
+    <div class="row" *ngIf="endSearch && items.length > 0">
         <div class="card mb-3 col-12 col-md-12" *ngFor="let item of items">
             <section class="row">
                 <div class="col-md-2" *ngIf="item.image_url">
