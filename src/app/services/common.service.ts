@@ -8,11 +8,19 @@ export class CommonService {
     }
 
     getBrewdogbeers(name) {
-        return this.apiService.get('brewdogbeers');
+        let query = '';
+        if (name) {
+            query = `?name=${name}`;
+        }
+        return this.apiService.get(`brewdogbeers${query}`);
     }
 
     getStarwars(name) {
-        return this.apiService.get('starwars');
+        let query = '';
+        if (name) {
+            query = `?name=${name}`;
+        }
+        return this.apiService.get(`starwars${query}`);
     }
 
     getItemselected() {
