@@ -16,6 +16,14 @@ export class ListItemsComponent {
 
     setItemSelectes(item) {
         item.selected = !item.selected;
-        return this.commonService.insertUpdateItemselected(item);
+        return this.commonService.insertUpdateItemselected(item)
+            .subscribe((response: any) => {
+                if (!response.success) {
+                    console.log('error');
+                }
+            },
+                error => {
+                    console.log(error);
+                });
     }
 }

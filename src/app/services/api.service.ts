@@ -6,6 +6,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class ApiService {
     url = 'https://vrsantos-apitestchallenge.herokuapp.com/api/';
+    // url = 'http://localhost:5000/api/';
 
     constructor(private http: HttpClient) { }
 

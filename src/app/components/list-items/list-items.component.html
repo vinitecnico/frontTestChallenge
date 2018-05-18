@@ -14,7 +14,7 @@
                     </h4>
 
                     <p class="card-text text-justify mb-2">
-                        {{item.description | slice: 0:350 }}
+                        {{item.description | slice: 0:400 }}
                         <span *ngIf="item.description && item.description.length > 350">...</span>
                     </p>
 
