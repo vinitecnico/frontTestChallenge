@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
   templateUrl: './app.component.html'
 })
 export class AppComponent {
+  isCollapsed: boolean;
   constructor(private router: Router) {
   }
 }

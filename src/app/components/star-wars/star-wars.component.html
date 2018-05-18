@@ -9,7 +9,7 @@
             </p>
         </div>
 
-        <abe-input-search [searchItems]="getStarWars" [hidden]="!endSearch || !items.length === 0"></abe-input-search>
+        <abe-input-search [searchItems]="getStarWars" [hidden]="!endSearch || items.length != 0"></abe-input-search>
         <abe-list-items [items]="items" [endSearch]="endSearch"></abe-list-items>
     </article>
 </main>
