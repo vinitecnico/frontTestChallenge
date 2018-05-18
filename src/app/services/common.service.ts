@@ -15,7 +15,7 @@ export class CommonService {
         return this.apiService.get('starwars');
     }
 
-    getItemselected(name) {
+    getItemselected() {
         return this.apiService.get('itemselected');
     }
 

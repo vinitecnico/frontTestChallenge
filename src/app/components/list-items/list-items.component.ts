@@ -1,14 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
+
+// service
+import { CommonService } from '../../services/common.service';
 
 @Component({
     selector: 'abe-list-items',
     templateUrl: './list-items.component.html'
 })
-export class ListItemsComponent implements OnInit {
+export class ListItemsComponent {
+    @Input() items: any[];
+    @Input() isPageRecommended: any[];
+    @Input() endSearch: false;
 
-    constructor() { }
+    constructor(private commonService: CommonService) { }
 
-    ngOnInit() {
+    setItemSelectes(item) {
+        item.selected = !item.selected;
+        return this.commonService.insertUpdateItemselected(item);
     }
-
 }
