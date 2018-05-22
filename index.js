@@ -1,17 +1,16 @@
-var express = require('express');
+//Install express server
+const express = require('express');
 const path = require('path');
-var app = express();
 
-// set the port of our application
-// process.env.PORT lets the port be set by Heroku
-var port = process.env.PORT || 8080;
+const app = express();
 
+// Serve only the static files form the dist directory
 app.use(express.static(__dirname + '/dist'));
 
-app.get('/*', function (req, res) {
-    res.sendFile(path.join(__dirname + '/dist/frontTestChallenge/index.html'));
+app.get('/*', function(req,res) {
+    
+res.sendFile(path.join(__dirname+'/dist/index.html'));
 });
 
-app.listen(port, function () {
-    console.log('Our app is running on http://localhost:' + port);
-});
+// Start the app by listening on the default Heroku port
+app.listen(process.env.PORT || 8080);
