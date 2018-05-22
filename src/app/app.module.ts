@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { BlockUIModule } from 'ng-block-ui';
 import { BlockUIHttpModule } from 'ng-block-ui/http';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -23,6 +23,22 @@ import { RecommendedComponent } from './components/recommended/recommended.compo
 // Services
 import { ApiService } from './services/api.service';
 import { CommonService } from './services/common.service';
+import { LocalStorageService } from './services/local-storage.service';
+
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
+
+export function getLocalStorage() {
+  return (typeof window !== 'undefined') ? window.localStorage : null;
+}
+
+export function ignorRequestFilters(req: any): boolean {
+  return req.method === 'GET' && req.url.includes('i18n');
+}
 
 
 @NgModule({
@@ -40,17 +56,28 @@ import { CommonService } from './services/common.service';
     RouterModule,
     HttpClientModule,
     BlockUIModule.forRoot(),
-    BlockUIHttpModule.forRoot(),
+    BlockUIHttpModule.forRoot({
+      requestFilters: [ignorRequestFilters]
+    }),
     AppRoutingModule,
     ReactiveFormsModule,
     NgbModule.forRoot(),
     NgbCollapseModule,
     CollapseModule.forRoot(),
-    BsDropdownModule.forRoot()
+    BsDropdownModule.forRoot(),
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
   ],
   providers: [
+    { provide: 'LocalStorage', useFactory: getLocalStorage },
     ApiService,
-    CommonService
+    CommonService,
+    LocalStorageService
   ],
   bootstrap: [AppComponent]
 })

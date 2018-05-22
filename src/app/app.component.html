@@ -16,7 +16,29 @@
         </li>
         <li class="nav-item active">
           <a class="nav-link disabled" [routerLink]="['/recommended']" (click)="isCollapsed = !isCollapsed">
-            <i class="fa fa-thumbs-up"></i> Recomendados</a>
+            <i class="fa fa-thumbs-up"></i> {{'recommended' | translate}}</a>
+        </li>
+        <li class="nav-item active">
+          <!-- <button mat-button class="md-button header-btn" [matMenuTriggerFor]="appNotification" style="height:60px;">
+            <div [class]="currentLang"></div>
+          </button>
+
+          <mat-menu class="language-menu" #appNotification="matMenu" x-position="after" y-position="below" overlapTrigger="false">
+            <mat-list dense>
+              <mat-list-item (click)="changeLanguage('pt-BR')">
+                <div class="pt-BR"></div>
+                <span>Português</span>
+              </mat-list-item>
+              <mat-list-item (click)="changeLanguage('en')">
+                <div class="en"></div>
+                <span>English</span>
+              </mat-list-item>
+              <mat-list-item (click)="changeLanguage('es')">
+                <div class="es"></div>
+                <span>Español</span>
+              </mat-list-item>
+            </mat-list>
+          </mat-menu> -->
         </li>
       </ul>
     </div>
