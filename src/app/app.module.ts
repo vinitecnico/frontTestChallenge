@@ -7,6 +7,7 @@ import { BlockUIHttpModule } from 'ng-block-ui/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgbModule, NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
 import { CollapseModule, BsDropdownModule } from 'ngx-bootstrap';
+import { MatListModule, MatMenuModule, MatButtonModule } from '@angular/material';
 
 // Router
 import { AppRoutingModule } from './app-routing.module';
@@ -27,6 +28,7 @@ import { LocalStorageService } from './services/local-storage.service';
 
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -52,6 +54,9 @@ export function ignorRequestFilters(req: any): boolean {
     RecommendedComponent
   ],
   imports: [
+    MatListModule,
+    MatMenuModule,
+    MatButtonModule,
     BrowserModule,
     RouterModule,
     HttpClientModule,
@@ -71,7 +76,8 @@ export function ignorRequestFilters(req: any): boolean {
         useFactory: HttpLoaderFactory,
         deps: [HttpClient]
       }
-    })
+    }),
+    BrowserAnimationsModule
   ],
   providers: [
     { provide: 'LocalStorage', useFactory: getLocalStorage },

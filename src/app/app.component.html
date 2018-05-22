@@ -19,7 +19,7 @@
             <i class="fa fa-thumbs-up"></i> {{'recommended' | translate}}</a>
         </li>
         <li class="nav-item active">
-          <!-- <button mat-button class="md-button header-btn" [matMenuTriggerFor]="appNotification" style="height:60px;">
+          <button mat-button class="language-button md-button header-btn" [matMenuTriggerFor]="appNotification">
             <div [class]="currentLang"></div>
           </button>
 
@@ -33,12 +33,8 @@
                 <div class="en"></div>
                 <span>English</span>
               </mat-list-item>
-              <mat-list-item (click)="changeLanguage('es')">
-                <div class="es"></div>
-                <span>Español</span>
-              </mat-list-item>
             </mat-list>
-          </mat-menu> -->
+          </mat-menu>
         </li>
       </ul>
     </div>
