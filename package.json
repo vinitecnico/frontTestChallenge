@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "node index.js",    
+    "start": "node index.js",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -29,6 +29,7 @@
     "font-awesome": "^4.7.0",
     "ng-block-ui": "^1.0.4",
     "ngx-bootstrap": "^3.0.0",
+    "path": "^0.12.7",
     "rxjs": "^6.0.0",
     "rxjs-compat": "^6.1.0",
     "zone.js": "^0.8.26"
