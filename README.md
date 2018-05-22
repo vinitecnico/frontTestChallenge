@@ -1,5 +1,6 @@
 # FrontTestChallenge
 Tecnologias
+
 HTML + Angular 6 com bootstrap 4
 
 ## Configuração do ambiente para desenvolvimento
@@ -10,13 +11,19 @@ Para o build do projeto, é necessário possuir o npm instalado (ao instalar o [
 Para verificar a versão instalada do node, utilize o comando "node -v".
 
 E a versão do npm seja 4 ou superior.
+
 Para verificar a versão instalada do npm, utilize o comando "npm --version".
+
 Para atualizar o npm se não estiver com a versão correta rode o seguinte comando.
+
 npm install -g npm
 
 É necessário abrir um console na pasta \frontTestChallenge e executar os seguintes comandos para instalação de referências do projeto:
+
 npm install
+
 npm install -g @angular/cli [Angular](https://github.com/angular/angular-cli/blob/master/README.md).
+
 
 Para a execução do projeto em ambiente de desenvolvimento executar os seguintes comandos:
 ng serve --open 
