@@ -1,27 +1,31 @@
 # FrontTestChallenge
+Tecnologias
+HTML + Angular 6 com bootstrap 4
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.1.
+## Configuração do ambiente para desenvolvimento
 
-## Development server
+Para o build do projeto, é necessário possuir o npm instalado (ao instalar o NodeJS, o npm é instalado automaticamente).
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+É necessário que a versão do node seja 8 ou superior.
+Para verificar a versão instalada do node, utilize o comando "node -v".
 
-## Code scaffolding
+E a versão do npm seja 4 ou superior.
+Para verificar a versão instalada do npm, utilize o comando "npm --version".
+Para atualizar o npm com o seguinte comando.
+npm install -g npm
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+É necessário abrir um console na pasta \frontTestChallenge e executar os seguintes comandos para instalação de referências do projeto:
+npm install
+npm install -g @angular/cli [Angular](https://github.com/angular/angular-cli/blob/master/README.md).
 
-## Build
+Para a execução do projeto em ambiente de desenvolvimento executar os seguintes comandos:
+ng serve --open 
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Inicializará no endereço http://localhost:4200.
 
-## Running unit tests
+## Publicação
+Para gerar um pacote de publicação deve-se abrir um console na pasta \frontTestChallenge  e executar o comando.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+ng build --prod
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+No final do comando a pasta dist é criada dentro de \frontTestChallenge com os arquivos resultantes de publicação.
