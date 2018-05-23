@@ -10,6 +10,26 @@
         </div>
 
         <abe-input-search [searchItems]="getStarWars" [hidden]="!endSearch"></abe-input-search>
-        <abe-list-items [items]="items" [endSearch]="endSearch" class="container-fluid"></abe-list-items>
+
+        <div class="container-fluid">
+            <div class="row" *ngIf="endSearch && items.length > 0">
+                <div *ngFor="let item of items">
+                    <abe-item [id]="item.episode_id" 
+                              [type]="'starWars'" 
+                              [name]="item.title" 
+                              [description]="item.opening_crawl"
+                              [selected]="item.selected"
+                              [isPageRecommended]="false">
+                    </abe-item>
+                </div>
+            </div>
+            <div class="row" *ngIf="endSearch && items.length == 0">
+                <div class="mb-3 col-12 col-md-12">
+                    <div class="alert alert-info" role="alert">
+                        <strong>{{'notFound' | translate}}</strong>.
+                     </div>
+                </div>
+            </div>
+        </div>
     </article>
 </main>

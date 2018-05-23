@@ -1,28 +1,55 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Subject } from 'rxjs/Subject';
+import { Observable } from 'rxjs/Observable';
+import { takeUntil, finalize } from 'rxjs/operators';
+import * as _ from 'lodash';
 
-import { CommonService } from '../../services/common.service';
+import { StarWarsService } from '../../services/star-wars.service';
+import { LocalStorageService } from '../../services/local-storage.service';
+
 
 @Component({
     selector: 'abe-star-wars',
     templateUrl: './star-wars.component.html'
 })
-export class StarWarsComponent implements OnInit {
+export class StarWarsComponent implements OnInit, OnDestroy {
     items: any[];
     endSearch: boolean;
-    constructor(private commonService: CommonService) { }
+    private ngUnsubscribe: Subject<any> = new Subject();
+    constructor(private starWarsService: StarWarsService,
+        private localStorageService: LocalStorageService) { }
 
     ngOnInit() {
         this.getStarWars();
     }
 
+    ngOnDestroy() {
+        this.ngUnsubscribe.next();
+        this.ngUnsubscribe.complete();
+    }
+
     getStarWars = (name?) => {
         this.endSearch = false;
-        this.commonService.getStarwars(name)
+        this.starWarsService.getAll(name)
+            .pipe(
+                takeUntil(this.ngUnsubscribe),
+                finalize(() => {
+                    this.endSearch = true;
+                })
+            )
             .subscribe((response: any) => {
-                if (response.success) {
-                    this.items = response.data;
+                this.items = response.results;
+
+                const starWarsStorage = JSON.parse(this.localStorageService.getItem('starWars')) || [];
+                if (this.items.length > 0) {
+                    _.each(this.items, (i: any) => {
+                        const item = _.find(starWarsStorage, (x) => {
+                            return x === i.episode_id;
+                        });
+
+                        i.selected = item ? true : false;
+                    });
                 }
-                this.endSearch = true;
             },
                 error => {
                     console.log(error);

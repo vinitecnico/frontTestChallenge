@@ -17,7 +17,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { BrewdogBeersComponent } from './components/brewdog-beers/brewdog-beers.component';
 import { InputSearchComponent } from './components/input-search/input-search.component';
-import { ListItemsComponent } from './components/list-items/list-items.component';
+import { ItemComponent } from './components/item/item.component';
 import { StarWarsComponent } from './components/star-wars/star-wars.component';
 import { RecommendedComponent } from './components/recommended/recommended.component';
 
@@ -25,10 +25,14 @@ import { RecommendedComponent } from './components/recommended/recommended.compo
 import { ApiService } from './services/api.service';
 import { CommonService } from './services/common.service';
 import { LocalStorageService } from './services/local-storage.service';
+import { StarWarsService } from './services/star-wars.service';
 
+
+// translate
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -49,7 +53,7 @@ export function ignorRequestFilters(req: any): boolean {
     HomeComponent,
     BrewdogBeersComponent,
     InputSearchComponent,
-    ListItemsComponent,
+    ItemComponent,
     StarWarsComponent,
     RecommendedComponent
   ],
@@ -83,7 +87,8 @@ export function ignorRequestFilters(req: any): boolean {
     { provide: 'LocalStorage', useFactory: getLocalStorage },
     ApiService,
     CommonService,
-    LocalStorageService
+    LocalStorageService,
+    StarWarsService
   ],
   bootstrap: [AppComponent]
 })
