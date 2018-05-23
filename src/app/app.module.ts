@@ -26,6 +26,7 @@ import { ApiService } from './services/api.service';
 import { CommonService } from './services/common.service';
 import { LocalStorageService } from './services/local-storage.service';
 import { StarWarsService } from './services/star-wars.service';
+import { BrewdogBeersService } from './services/brewdog-beers.service';
 
 
 // translate
@@ -88,7 +89,8 @@ export function ignorRequestFilters(req: any): boolean {
     ApiService,
     CommonService,
     LocalStorageService,
-    StarWarsService
+    StarWarsService,
+    BrewdogBeersService
   ],
   bootstrap: [AppComponent]
 })

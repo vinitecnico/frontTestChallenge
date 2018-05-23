@@ -12,8 +12,8 @@
         <abe-input-search [searchItems]="getStarWars" [hidden]="!endSearch"></abe-input-search>
 
         <div class="container-fluid">
-            <div class="row" *ngIf="endSearch && items.length > 0">
-                <div *ngFor="let item of items">
+            <div *ngIf="endSearch && items.length > 0">
+                <div class="row" *ngFor="let item of items">
                     <abe-item [id]="item.episode_id" 
                               [type]="'starWars'" 
                               [name]="item.title" 

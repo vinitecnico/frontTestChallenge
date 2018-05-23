@@ -7,6 +7,21 @@
                 <i class="fa fa-thumbs-up"></i>!</p>
         </div>
         <abe-input-search [searchItems]="getBrewdogbeers" [hidden]="!endSearch"></abe-input-search>
-        <!-- <abe-list-items class="container-fluid" [items]="items" [endSearch]="endSearch"></abe-list-items> -->
+        <div class="container-fluid">
+            <div *ngIf="endSearch && items.length > 0">
+                <div class="row" *ngFor="let item of items">
+                    <abe-item [id]="item.id" [type]="'brewdogBeers'" [name]="item.name" [description]="item.description" [imageUrl]="item.image_url"
+                        [selected]="item.selected" [isPageRecommended]="false">
+                    </abe-item>
+                </div>                
+            </div>
+            <div class="row" *ngIf="endSearch && items.length == 0">
+                <div class="mb-3 col-12 col-md-12">
+                    <div class="alert alert-info" role="alert">
+                        <strong>{{'notFound' | translate}}</strong>.
+                    </div>
+                </div>
+            </div>
+        </div>
     </article>
 </main>

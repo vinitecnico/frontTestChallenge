@@ -28,11 +28,16 @@ body {
 }
 
 .img-item {
-    max-height: 120px;
+    max-height: 100px!important;
 }
 
 .page-min-height {
     min-height: 490px!important;
+}
+
+abe-item {
+    width: 100%;
+    float: right;
 }
 
 abe-input-search {
