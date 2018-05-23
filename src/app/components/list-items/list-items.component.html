@@ -18,10 +18,10 @@
                         </p>
 
                         <button type="button" class="btn btn-outline-primary btn-sm mb-3" *ngIf="!isPageRecommended" [hidden]="item.selected" (click)="setItemSelectes(item)">
-                            <i class="fa fa-thumbs-up"></i> Recomendar
+                            <i class="fa fa-thumbs-up"></i> {{'recommend' | translate}}
                         </button>
                         <button type="button" class="btn btn-primary btn-sm mb-3" *ngIf="!isPageRecommended" [hidden]="!item.selected" (click)="setItemSelectes(item)">
-                            <i class="fa fa-check"></i> Recomendado
+                            <i class="fa fa-check"></i> {{'recommended' | translate}}
                         </button>
 
                     </div>
@@ -33,7 +33,7 @@
     <div class="row">
         <div class="mb-3 col-12 col-md-12" *ngIf="endSearch && items.length == 0">
             <div class="alert alert-info" role="alert">
-                <strong>Resultado não encontrado para sua pesquisa!</strong>.
+                <strong>{{'notFound' | translate}}</strong>.
             </div>
         </div>
     </div>
