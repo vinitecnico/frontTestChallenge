@@ -10,18 +10,12 @@ import { LocalStorageService } from './services/local-storage.service';
   templateUrl: './app.component.html'
 })
 export class AppComponent {
-  isCollapsed = true;
-  public currentLang: string;
 
   constructor(private router: Router,
     @Inject(LOCALE_ID) protected localeId: string,
     private translate: TranslateService,
     private localStorageService: LocalStorageService) {
     this.startLanguage();
-
-    this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
-      this.currentLang = event.lang;
-    });
   }
 
   private startLanguage(): void {
@@ -39,7 +33,6 @@ export class AppComponent {
         language = navigator.language;
       }
 
-      // tratamento feito para identificar idioma do navegador
       if (language.toLowerCase().indexOf('pt') > -1) {
         language = 'pt-BR';
       } else {
@@ -49,16 +42,5 @@ export class AppComponent {
     }
 
     this.translate.use(language);
-    // this.adapter.setLocale(language);
-  }
-
-  changeLanguage(language: string) {
-    if (language === this.currentLang) {
-      return;
-    }
-
-    this.translate.use(language);
-    // this.adapter.setLocale(language);
-    this.localStorageService.setItem('language', language);
   }
 }

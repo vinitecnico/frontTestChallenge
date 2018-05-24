@@ -20,6 +20,7 @@ import { InputSearchComponent } from './components/input-search/input-search.com
 import { ItemComponent } from './components/item/item.component';
 import { StarWarsComponent } from './components/star-wars/star-wars.component';
 import { RecommendedComponent } from './components/recommended/recommended.component';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 
 // Services
 import { ApiService } from './services/api.service';
@@ -56,7 +57,8 @@ export function ignorRequestFilters(req: any): boolean {
     InputSearchComponent,
     ItemComponent,
     StarWarsComponent,
-    RecommendedComponent
+    RecommendedComponent,
+    NavBarComponent
   ],
   imports: [
     MatListModule,
