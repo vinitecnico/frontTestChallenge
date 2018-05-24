@@ -32,7 +32,7 @@ body {
 }
 
 .page-min-height {
-    min-height: 490px!important;
+    min-height: calc(100vh - 170px);
 }
 
 abe-item {
