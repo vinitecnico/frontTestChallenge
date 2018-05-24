@@ -42,7 +42,8 @@ export class RecommendedComponent implements OnInit, OnDestroy {
             ]);
 
             const options = {
-                title: 'Frontend Challenge#'
+                title: 'Frontend Challenge#',
+                is3D: true,
             };
 
             const chart = new google.visualization.PieChart(document.getElementById('piechart'));
