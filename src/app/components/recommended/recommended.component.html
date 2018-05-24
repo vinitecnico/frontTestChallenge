@@ -6,6 +6,29 @@
             <p class="lead">{{'ifYouLikeItLeaveItLike' | translate}}
                 <i class="fa fa-thumbs-up"></i>!</p>
         </div>
-        <!-- <abe-list-items [items]="items" [endSearch]="endSearch" [isPageRecommended]="true" class="container-fluid"></abe-list-items> -->
+        <div class="container-fluid">
+            <div *ngIf="endSearch && items.length > 0">
+                <div class="row">
+                    <div class="mb-3 box-shadow card" id="piechart"></div>
+                </div>                
+                <div class="row" *ngFor="let item of items">
+                    <abe-item [id]="item.type == 'starWars' ? item.episode_id : item.id"
+                              [imageUrl]="item.type != 'starWars' ? item.image_url : ''"
+                              [type]="item.type" 
+                              [name]="item.type == 'starWars' ? item.title : item.name" 
+                              [description]="item.type == 'starWars' ? item.opening_crawl : item.description"
+                              [selected]="item.selected"
+                              [isPageRecommended]="true">
+                    </abe-item>
+                </div>                
+            </div>
+            <div class="row" *ngIf="endSearch && items.length == 0">
+                <div class="mb-3 col-12 col-md-12">
+                    <div class="alert alert-info" role="alert">
+                        <strong>{{'notFound' | translate}}</strong>.
+                     </div>
+                </div>
+            </div>
+        </div>
     </article>
 </main>

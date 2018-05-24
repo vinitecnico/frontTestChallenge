@@ -13,8 +13,8 @@
 
         <div class="container-fluid">
             <div *ngIf="endSearch && items.length > 0">
-                <div class="row" *ngFor="let item of items">
-                    <abe-item [id]="item.episode_id" 
+                <div class="row" *ngFor="let item of items;">
+                    <abe-item [id]="item.url"
                               [type]="'starWars'" 
                               [name]="item.title" 
                               [description]="item.opening_crawl"

@@ -8,6 +8,10 @@
             <div class="card-block px-3">
 
                 <h4 class="card-title mt-3">
+                    <span *ngIf="isPageRecommended">
+                        <i *ngIf="type == 'brewdogBeers'" class="fa fa-beer"></i> 
+                        <i *ngIf="type == 'starWars'" class="fa fa-space-shuttle"></i> 
+                    </span>
                     <a target="_blank">{{name}}</a>
                 </h4>
 

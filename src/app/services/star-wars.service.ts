@@ -22,8 +22,7 @@ export class StarWarsService {
         return this.apiService.get(url, headerOptions);
     }
 
-    getById(id: number): Observable<any> {
-        const url = `${this.domain}${id}`;
-        return this.apiService.get(url, headerOptions);
+    getById(id: string): Observable<any> {
+        return this.apiService.get(id, headerOptions);
     }
 }

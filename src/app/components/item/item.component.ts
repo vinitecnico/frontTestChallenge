@@ -10,7 +10,7 @@ import { LocalStorageService } from '../../services/local-storage.service';
     templateUrl: './item.component.html'
 })
 export class ItemComponent {
-    @Input() id: number;
+    @Input() id: any;
     @Input() type: string;
     @Input() name: string;
     @Input() description: string;

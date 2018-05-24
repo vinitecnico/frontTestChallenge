@@ -44,7 +44,7 @@ export class StarWarsComponent implements OnInit, OnDestroy {
                 if (this.items.length > 0) {
                     _.each(this.items, (i: any) => {
                         const item = _.find(starWarsStorage, (x) => {
-                            return x === i.episode_id;
+                            return x === i.url;
                         });
 
                         i.selected = item ? true : false;
