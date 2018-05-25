@@ -6,17 +6,17 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarsExampleDefault" [collapse]="isCollapsed">
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
+            <li class="nav-item" [ngClass]="{'active': activeUrl == '/brewdog-beers'}">
                 <a class="nav-link" [routerLink]="['/brewdog-beers']" (click)="isCollapsed = !isCollapsed">
                     <i class="fa fa-beer"></i> {{'brewdogBeers' | translate}}
                 </a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" [ngClass]="{'active': activeUrl == '/star-wars'}">
                 <a class="nav-link" [routerLink]="['/star-wars']" (click)="isCollapsed = !isCollapsed">
                     <i class="fa fa-space-shuttle"></i> {{'starWars' | translate}}
                 </a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" [ngClass]="{'active': activeUrl == '/recommended'}">
                 <a class="nav-link" [routerLink]="['/recommended']" (click)="isCollapsed = !isCollapsed">
                     <i class="fa fa-thumbs-up"></i> {{'recommendeds' | translate}}
                 </a>
