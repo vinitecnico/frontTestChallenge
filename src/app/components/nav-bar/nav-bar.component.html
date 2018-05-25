@@ -5,36 +5,41 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarsExampleDefault" [collapse]="isCollapsed">
-        <ul class="navbar-nav mr-auto">
+        <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
                 <a class="nav-link" [routerLink]="['/brewdog-beers']" (click)="isCollapsed = !isCollapsed">
-                    <i class="fa fa-beer"></i> {{'brewdogBeers' | translate}}</a>
+                    <i class="fa fa-beer"></i> {{'brewdogBeers' | translate}}
+                </a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" [routerLink]="['/star-wars']" (click)="isCollapsed = !isCollapsed">
-                    <i class="fa fa-space-shuttle"></i> {{'starWars' | translate}}</a>
+                    <i class="fa fa-space-shuttle"></i> {{'starWars' | translate}}
+                </a>
             </li>
-            <li class="nav-item active">
-                <a class="nav-link disabled" [routerLink]="['/recommended']" (click)="isCollapsed = !isCollapsed">
-                    <i class="fa fa-thumbs-up"></i> {{'recommendeds' | translate}}</a>
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/recommended']" (click)="isCollapsed = !isCollapsed">
+                    <i class="fa fa-thumbs-up"></i> {{'recommendeds' | translate}}
+                </a>
             </li>
-            <li class="nav-item active">
-                <button mat-button class="language-button md-button header-btn" [matMenuTriggerFor]="appNotification">
-                    <div [class]="currentLang"></div>
-                </button>
+            <li class="nav-item">
+                <a class="nav-link">
+                    <button mat-button class="language-button md-button header-btn" [matMenuTriggerFor]="appNotification">
+                        <div [class]="currentLang"></div>
+                    </button>
 
-                <mat-menu class="language-menu" #appNotification="matMenu" x-position="after" y-position="below" overlapTrigger="false">
-                    <mat-list dense>
-                        <mat-list-item (click)="changeLanguage('pt-BR')">
-                            <div class="pt-BR"></div>
-                            <span>Português</span>
-                        </mat-list-item>
-                        <mat-list-item (click)="changeLanguage('en')">
-                            <div class="en"></div>
-                            <span>English</span>
-                        </mat-list-item>
-                    </mat-list>
-                </mat-menu>
+                    <mat-menu class="language-menu" #appNotification="matMenu" x-position="after" y-position="below" overlapTrigger="false">
+                        <mat-list dense>
+                            <mat-list-item (click)="changeLanguage('pt-BR')">
+                                <div class="pt-BR"></div>
+                                <span>Português</span>
+                            </mat-list-item>
+                            <mat-list-item (click)="changeLanguage('en')">
+                                <div class="en"></div>
+                                <span>English</span>
+                            </mat-list-item>
+                        </mat-list>
+                    </mat-menu>
+                </a>
             </li>
         </ul>
     </div>
