@@ -7,7 +7,7 @@ import { BlockUIHttpModule } from 'ng-block-ui/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgbModule, NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
 import { CollapseModule, BsDropdownModule } from 'ngx-bootstrap';
-import { MatListModule, MatMenuModule, MatButtonModule } from '@angular/material';
+import { MatListModule, MatMenuModule, MatButtonModule, MatDialogModule } from '@angular/material';
 
 // Router
 import { AppRoutingModule } from './app-routing.module';
@@ -21,6 +21,7 @@ import { ItemComponent } from './components/item/item.component';
 import { StarWarsComponent } from './components/star-wars/star-wars.component';
 import { RecommendedComponent } from './components/recommended/recommended.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { ItemDetailsComponent } from './components/item-details/item-details.component';
 
 // Services
 import { ApiService } from './services/api.service';
@@ -58,12 +59,14 @@ export function ignorRequestFilters(req: any): boolean {
     ItemComponent,
     StarWarsComponent,
     RecommendedComponent,
-    NavBarComponent
+    NavBarComponent,
+    ItemDetailsComponent
   ],
   imports: [
     MatListModule,
     MatMenuModule,
     MatButtonModule,
+    MatDialogModule,
     BrowserModule,
     RouterModule,
     HttpClientModule,
@@ -94,6 +97,7 @@ export function ignorRequestFilters(req: any): boolean {
     StarWarsService,
     BrewdogBeersService
   ],
+  entryComponents: [ItemDetailsComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {

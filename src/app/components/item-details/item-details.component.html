@@ -1,0 +1,8 @@
+<img *ngIf="item && type != 'starWars'" [src]="item.image_url" alt="name" class="mx-auto d-block img-item mb-2 mt-2">
+<h1 mat-dialog-title *ngIf="item">{{type == 'starWars' ? item.title : item.name}}</h1>
+<div mat-dialog-content>
+  <p *ngIf="item">{{type == 'starWars' ? item.opening_crawl : item.description}}</p>
+</div>
+<div mat-dialog-actions class="text-right">
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>{{'close' | translate}}</button>
+</div>

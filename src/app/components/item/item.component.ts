@@ -1,9 +1,14 @@
 import { Component, Input } from '@angular/core';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import * as _ from 'lodash';
+
+// component
+import { ItemDetailsComponent } from '../item-details/item-details.component';
 
 // service
 import { CommonService } from '../../services/common.service';
 import { LocalStorageService } from '../../services/local-storage.service';
+
 
 @Component({
     selector: 'abe-item',
@@ -19,7 +24,8 @@ export class ItemComponent {
     @Input() isPageRecommended: boolean;
 
     constructor(private commonService: CommonService,
-        private localStorageService: LocalStorageService) { }
+        private localStorageService: LocalStorageService,
+        public dialog: MatDialog) { }
 
     limitText(text) {
         if (text && text.length > 350) {
@@ -40,5 +46,17 @@ export class ItemComponent {
         }
         this.selected = !this.selected;
         this.localStorageService.setItem(type, JSON.stringify(items));
+    }
+
+    openDialog(id: any, type: string, selected: boolean): void {
+        const dialogRef = this.dialog.open(ItemDetailsComponent, {
+            width: '50%',
+            data: { id, type }
+        });
+
+        dialogRef.afterClosed()
+            .subscribe(result => {
+                console.log(result);
+            });
     }
 }
