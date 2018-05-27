@@ -1,8 +1,27 @@
-<img *ngIf="item && type != 'starWars'" [src]="item.image_url" alt="name" class="mx-auto d-block img-item mb-2 mt-2">
-<h1 mat-dialog-title *ngIf="item">{{type == 'starWars' ? item.title : item.name}}</h1>
-<div mat-dialog-content>
-  <p *ngIf="item">{{type == 'starWars' ? item.opening_crawl : item.description}}</p>
-</div>
+<main *ngIf="item">
+  <section *ngIf="type != 'starWars';else starWars">
+    <article>
+      <img [src]="item.image_url" alt="name" class="mx-auto d-block img-item mb-2 mt-2">
+      <h1 mat-dialog-title>{{item.name}}</h1>
+      <div mat-dialog-content>
+        <p class="mb-2">{{item.description}}</p>
+        <p>{{item.brewers_tips}}</p>
+        <p *ngFor="let food of item.food_pairing">{{food}}</p>
+        <p><b>{{item.contributed_by}}</b></p>        
+      </div>
+    </article>
+  </section>
+  <ng-template #starWars>
+    <article>
+      <h1 mat-dialog-title>{{item.title}}</h1>
+      <div mat-dialog-content>
+        <p>{{item.opening_crawl}}</p>
+        <p><b>{{'director' | translate}}</b>: {{item.director}}</p>
+        <p><b>{{'producer' | translate}}</b>: {{item.producer + ' - ' + item.release_date}}</p>
+      </div>
+    </article>
+  </ng-template>
+</main>
 <div mat-dialog-actions class="text-right">
   <button mat-button [mat-dialog-close]="data" cdkFocusInitial>{{'close' | translate}}</button>
 </div>

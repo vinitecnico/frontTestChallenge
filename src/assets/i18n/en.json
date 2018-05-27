@@ -11,5 +11,7 @@
     "notFound": "Sorry, no results were found for your search!",
     "search": "Search",
     "or": "or",
-    "close": "Close"
+    "close": "Close",
+    "director": "Director",
+    "producer": "Produtor"
 }

@@ -12,7 +12,7 @@
                     <div class="mb-3 box-shadow card" id="piechart"></div>
                 </div>                
                 <div class="row" *ngFor="let item of items">
-                    <abe-item [id]="item.type == 'starWars' ? item.episode_id : item.id"
+                    <abe-item [id]="item.type == 'starWars' ? item.url : item.id"
                               [imageUrl]="item.type != 'starWars' ? item.image_url : ''"
                               [type]="item.type" 
                               [name]="item.type == 'starWars' ? item.title : item.name" 
