@@ -4,31 +4,54 @@
       <h1 class="display-4">{{'frontendChallenge' | translate}}#</h1>
       <p class="lead">{{'WhatDoYouLikeBest' | translate}}</p>
     </div>
-    
+
     <div class="container mb-5">
+      <ngb-carousel class="mb-3 box-shadow">
+        <ng-template ngbSlide>
+          <img class="img-slide" src="../../../assets/img/cheers-839865_1920.jpg" alt="{{'brewdogBeers' | translate}}">
+          <div class="carousel-caption btn" [routerLink]="['/brewdog-beers']">
+            <h3> <i class="fa fa-beer"></i> {{'brewdogBeers' | translate}}</h3>
+            <p>{{'brewdogDescription' | translate}}</p>
+          </div>
+        </ng-template>
+        <ng-template ngbSlide>
+          <img class="img-slide" src="../../../assets/img/stormtrooper-2899982_1920.jpg" alt="{{'starWars' | translate}}">
+          <div class="carousel-caption btn" [routerLink]="['/star-wars']">
+            <h3><i class="fa fa-space-shuttle"></i> {{'starWars' | translate}}</h3>
+            <p>{{'starWarsDescription' | translate}}</p>
+          </div>
+        </ng-template>
+      </ngb-carousel>
+
       <div class="card-deck mb-3 text-center">
         <div class="card mb-6 box-shadow">
           <div class="card-header">
-            <h4 class="my-0 font-weight-normal"><i class="fa fa-beer"></i> {{'brewdogBeers' | translate}}</h4>
+            <h4 class="my-0 font-weight-normal">
+              <i class="fa fa-beer"></i> {{'brewdogBeers' | translate}}</h4>
           </div>
           <div class="card-body">
-              <img class="card-img-top mb-3 rounded img-home" src="../../../assets/img/brewdog-beer.jpg" alt="Star Wars" [routerLink]="['/brewdog-beers']">
-              <div class="middle">
-                  <div class="text" [routerLink]="['/brewdog-beers']"><i class="fa fa-plus"></i> {{'learnMore' | translate}}</div>
-                </div>
-              <button type="button" class="btn btn-lg btn-block btn-outline-primary" [routerLink]="['/brewdog-beers']"><i class="fa fa-plus"></i> {{'learnMore' | translate}}</button>
+            <img class="card-img-top mb-3 rounded img-home" src="../../../assets/img/brewdog-beer.jpg" alt="Star Wars" [routerLink]="['/brewdog-beers']">
+            <div class="middle">
+              <div class="text" [routerLink]="['/brewdog-beers']">
+                <i class="fa fa-plus"></i> {{'learnMore' | translate}}</div>
+            </div>
+            <button type="button" class="btn btn-lg btn-block btn-outline-primary" [routerLink]="['/brewdog-beers']">
+              <i class="fa fa-plus"></i> {{'learnMore' | translate}}</button>
           </div>
         </div>
         <div class="card mb-6 box-shadow">
           <div class="card-header">
-            <h4 class="my-0 font-weight-normal"><i class="fa fa-space-shuttle"></i> {{'starWars' | translate}}</h4>
+            <h4 class="my-0 font-weight-normal">
+              <i class="fa fa-space-shuttle"></i> {{'starWars' | translate}}</h4>
           </div>
           <div class="card-body">
             <img class="card-img-top mb-3 rounded img-home" src="../../../assets/img/starWars.png" alt="Star Wars" [routerLink]="['/star-wars']">
             <div class="middle">
-                <div class="text" [routerLink]="['/star-wars']"><i class="fa fa-plus"></i> {{'learnMore' | translate}}</div>
-              </div>
-            <button type="button" class="btn btn-lg btn-block btn-outline-primary" [routerLink]="['/star-wars']"><i class="fa fa-plus"></i> {{'learnMore' | translate}}</button>
+              <div class="text" [routerLink]="['/star-wars']">
+                <i class="fa fa-plus"></i> {{'learnMore' | translate}}</div>
+            </div>
+            <button type="button" class="btn btn-lg btn-block btn-outline-primary" [routerLink]="['/star-wars']">
+              <i class="fa fa-plus"></i> {{'learnMore' | translate}}</button>
           </div>
         </div>
 
