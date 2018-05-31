@@ -7,7 +7,15 @@ import { BlockUIHttpModule } from 'ng-block-ui/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgbModule, NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
 import { CollapseModule, BsDropdownModule } from 'ngx-bootstrap';
-import { MatListModule, MatMenuModule, MatButtonModule, MatDialogModule, MatPaginatorModule, MatTableModule } from '@angular/material';
+import {
+  MatListModule,
+  MatMenuModule,
+  MatButtonModule,
+  MatDialogModule,
+  MatPaginatorModule,
+  MatTableModule,
+  MatPaginatorIntl
+} from '@angular/material';
 
 // Router
 import { AppRoutingModule } from './app-routing.module';
@@ -36,6 +44,7 @@ import { BrewdogBeersService } from './services/brewdog-beers.service';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { getDutchPaginatorIntl } from './services/dutch-paginator-intl';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -94,6 +103,7 @@ export function ignorRequestFilters(req: any): boolean {
   ],
   providers: [
     { provide: 'LocalStorage', useFactory: getLocalStorage },
+    { provide: MatPaginatorIntl, useValue: getDutchPaginatorIntl()},
     ApiService,
     CommonService,
     LocalStorageService,
