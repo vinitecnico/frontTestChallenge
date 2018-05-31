@@ -21,6 +21,11 @@
                     <i class="fa fa-thumbs-up"></i> {{'recommendeds' | translate}}
                 </a>
             </li>
+            <li class="nav-item" [ngClass]="{'active': activeUrl == '/pagination'}">
+                <a class="nav-link" [routerLink]="['/pagination']" (click)="isCollapsed = !isCollapsed">
+                    <i class="fa fa-thumbs-up"></i> {{'pagination' | translate}}
+                </a>
+            </li>
             <li class="nav-item">
                 <a class="nav-link">
                     <button mat-button class="language-button md-button header-btn" [matMenuTriggerFor]="appNotification">

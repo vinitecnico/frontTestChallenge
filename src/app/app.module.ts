@@ -7,7 +7,7 @@ import { BlockUIHttpModule } from 'ng-block-ui/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgbModule, NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
 import { CollapseModule, BsDropdownModule } from 'ngx-bootstrap';
-import { MatListModule, MatMenuModule, MatButtonModule, MatDialogModule } from '@angular/material';
+import { MatListModule, MatMenuModule, MatButtonModule, MatDialogModule, MatPaginatorModule, MatTableModule } from '@angular/material';
 
 // Router
 import { AppRoutingModule } from './app-routing.module';
@@ -22,6 +22,7 @@ import { StarWarsComponent } from './components/star-wars/star-wars.component';
 import { RecommendedComponent } from './components/recommended/recommended.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { ItemDetailsComponent } from './components/item-details/item-details.component';
+import { PaginationComponent } from './components/pagination/pagination.component';
 
 // Services
 import { ApiService } from './services/api.service';
@@ -35,7 +36,6 @@ import { BrewdogBeersService } from './services/brewdog-beers.service';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -60,13 +60,16 @@ export function ignorRequestFilters(req: any): boolean {
     StarWarsComponent,
     RecommendedComponent,
     NavBarComponent,
-    ItemDetailsComponent
+    ItemDetailsComponent,
+    PaginationComponent
   ],
   imports: [
     MatListModule,
     MatMenuModule,
     MatButtonModule,
     MatDialogModule,
+    MatPaginatorModule,
+    MatTableModule,
     BrowserModule,
     RouterModule,
     HttpClientModule,

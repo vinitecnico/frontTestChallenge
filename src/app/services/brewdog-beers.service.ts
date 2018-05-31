@@ -22,6 +22,11 @@ export class BrewdogBeersService {
         return this.apiService.get(url, headerOptions);
     }
 
+    getAllWithPagination(page, pageSize): Observable<any> {
+        const url = `${this.domain}?page=${page}&per_page=${pageSize}`;
+        return this.apiService.get(url, headerOptions);
+    }
+
     getById(id: number[]): Observable<any> {
         const url = `${this.domain}?ids=${id.join('|')}`;
         return this.apiService.get(url, headerOptions);

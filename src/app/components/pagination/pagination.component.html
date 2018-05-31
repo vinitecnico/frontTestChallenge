@@ -1,0 +1,41 @@
+<div class="mat-elevation-z8 mb-5 mt-5">
+    <table mat-table [dataSource]="dataSource">
+
+        <!-- id Column -->
+        <ng-container matColumnDef="id">
+            <th style="padding: 15px;" mat-header-cell *matHeaderCellDef> id. </th>
+            <td style="padding: 15px;" mat-cell *matCellDef="let element"> {{element.id}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+            <th style="padding: 15px;" mat-header-cell *matHeaderCellDef> Name </th>
+            <td style="padding: 15px;" mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+
+        <!-- first_brewed Column -->
+        <ng-container matColumnDef="first_brewed">
+            <th style="padding: 15px;" mat-header-cell *matHeaderCellDef> first_brewed </th>
+            <td style="padding: 15px;" mat-cell *matCellDef="let element"> {{element.first_brewed}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="image_url">
+            <th style="padding: 15px;" mat-header-cell *matHeaderCellDef> image_url </th>
+            <td style="padding: 15px;" mat-cell *matCellDef="let element"> {{element.image_url}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="description">
+            <th style="padding: 15px;" mat-header-cell *matHeaderCellDef> description </th>
+            <td style="padding: 15px;" mat-cell *matCellDef="let element"> {{element.description}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <mat-paginator #paginator [length]="length" [pageIndex]="pageIndex" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
+        (page)="getNext($event)" showFirstLastButtons>
+    </mat-paginator>
+</div>
