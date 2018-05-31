@@ -28,7 +28,8 @@
         <!-- Name Column -->
         <ng-container matColumnDef="description">
             <th style="padding: 15px;" mat-header-cell *matHeaderCellDef> description </th>
-            <td style="padding: 15px;" mat-cell *matCellDef="let element"> {{element.description}} </td>
+            <td style="padding: 15px;cursor:pointer;" mat-cell *matCellDef="let element" 
+               placement="bottom" ngbTooltip="{{element.description}}"> {{stringLimited(element.description)}} </td>
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

@@ -45,4 +45,12 @@ export class PaginationComponent implements OnInit {
     getNext(event: PageEvent) {
         this.getAll(event.pageIndex, event.pageSize);
     }
+
+    stringLimited(text) {
+        if (text.length > 70) {
+            return `${text.substring(0, 70)}...`;
+        } else {
+            return text;
+        }
+    }
 }
