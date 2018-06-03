@@ -1,29 +1,43 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import 'rxjs/add/operator/map';
+import * as _ from 'lodash';
 
 
 @Injectable()
 export class ApiService {
     constructor(private http: HttpClient) { }
 
-    get(url: string, header?: any) {
-        return this.http.get(url, header);
+    private setParameters(parameters: any): HttpParams {
+        if (parameters) {
+            let Params = new HttpParams();
+            _.each(parameters, (value, key) => {
+                Params = Params.append(key, value);
+            });
+
+            return Params;
+        }
+
+        return null;
     }
 
-    post(url: string, body: any) {
-        return this.http.post(url, body);
+    get(url: string, header?: any, parameters?: any) {
+        return this.http.get(url, { headers: header, params: this.setParameters(parameters) });
     }
 
-    put(url: string, body: any) {
-        return this.http.put(url, body);
+    post(url: string, body: any, header?: any) {
+        return this.http.post(url, body, header);
     }
 
-    delete(url: string, body: any) {
-        return this.http.delete(url, body);
+    put(url: string, body: any, header?: any, parameters?: any) {
+        return this.http.put(url, body, { headers: header, params: this.setParameters(parameters) });
     }
 
-    patch(url: string, body: any) {
-        return this.http.put(url, body);
+    delete(url: string, header?: any, parameters?: any) {
+        return this.http.delete(url, { headers: header, params: this.setParameters(parameters) });
+    }
+
+    patch(url: string, body: any, header?: any, parameters?: any) {
+        return this.http.put(url, body, { headers: header, params: this.setParameters(parameters) });
     }
 }

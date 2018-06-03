@@ -33,7 +33,11 @@ export class PaginationComponent implements OnInit {
     }
 
     getAll(page, pageSize) {
-        return this.brewdogBeersService.getAllWithPagination((page + 1), pageSize)
+        const request = {
+            page: (page + 1),
+            per_page: pageSize
+        };
+        return this.brewdogBeersService.getAllWithPagination(request)
             .subscribe(response => {
                 this.length = 150;
                 this.dataSource.data = response;
